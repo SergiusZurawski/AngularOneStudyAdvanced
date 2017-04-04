@@ -1,0 +1,22 @@
+{
+  "name": "yes",
+  "description": "studing angular",
+  "main": "index.js",
+  "authors": [
+    "Sergii Zhuravskyi"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/SergiusZurawski/AngularOneStudyAdvanced",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "^3.2.1",
+    "bootstrap": "3.3.7",
+    "font-awesome": ""
+  }
+}
