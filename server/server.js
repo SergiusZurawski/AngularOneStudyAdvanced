@@ -1,29 +1,38 @@
-'use strict';
-
+const Path = require('path');
 const Hapi = require('hapi');
+const Inert = require('inert');
 
-// Create a server with a host and port
-const server = new Hapi.Server();
-server.connection({ 
-    host: 'localhost', 
-    port: 8000 
+const server = new Hapi.Server({
+    connections: {
+        routes: {
+            files: {
+                //relativeTo: Path.join(__dirname, 'html')
+                relativeTo: Path.join(__dirname, '../../AngularOneStudyAdvanced')
+            }
+        }
+    }
 });
+server.connection({ port: 8000 });
 
-// Add the route
+server.register(Inert, () => {});
+
 server.route({
     method: 'GET',
-    path:'/', 
-    handler: function (request, reply) {
-        
-        return reply('hello world');
+    path: '/{param*}',
+    handler: {
+        directory: {
+            path: '.',
+            redirectToSlash: true,
+            index: true
+        }
     }
 });
 
-// Start the server
 server.start((err) => {
 
     if (err) {
         throw err;
     }
+
     console.log('Server running at:', server.info.uri);
 });
