@@ -1,0 +1,9 @@
+body {
+    background-color: #444;
+    font-family: 'Open Sans', sans-serif;
+    /*font-family: Aclonica; */
+}
+
+.container-fluid {
+    padding:0;
+}
